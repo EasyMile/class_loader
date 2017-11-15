@@ -32,20 +32,37 @@
 
 #include <console_bridge/console.h>
 
-#ifndef CONSOLE_BRIDGE_logError
-#define CONSOLE_BRIDGE_logError logError
+#ifdef logDebug
+# ifdef CONSOLE_BRIDGE_logDebug
+#  undef logDebug
+# else
+// Remove this when no longer supporting platforms with libconsole-bridge-dev < 0.3.0,
+#  define CONSOLE_BRIDGE_logDebug logDebug
+# endif
 #endif
-
-#ifndef CONSOLE_BRIDGE_logWarn
-#define CONSOLE_BRIDGE_logWarn logWarn
+#ifdef logInform
+# ifdef CONSOLE_BRIDGE_logInform
+#  undef logInform
+# else
+// Remove this when no longer supporting platforms with libconsole-bridge-dev < 0.3.0,
+#  define CONSOLE_BRIDGE_logInform logInform
+# endif
 #endif
-
-#ifndef CONSOLE_BRIDGE_logDebug
-#define CONSOLE_BRIDGE_logDebug logDebug
+#ifdef logWarn
+# ifdef CONSOLE_BRIDGE_logWarn
+#  undef logWarn
+# else
+// Remove this when no longer supporting platforms with libconsole-bridge-dev < 0.3.0,
+#  define CONSOLE_BRIDGE_logWarn logWarn
+# endif
 #endif
-
-#ifndef CONSOLE_BRIDGE_logInform
-#define CONSOLE_BRIDGE_logInform logInform
+#ifdef logError
+# ifdef CONSOLE_BRIDGE_logError
+#  undef logError
+# else
+// Remove this when no longer supporting platforms with libconsole-bridge-dev < 0.3.0,
+#  define CONSOLE_BRIDGE_logError logError
+# endif
 #endif
 
 #endif  // CLASS_LOADER__CONSOLE_BRIDGE_COMPATIBILITY_H_
